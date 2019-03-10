@@ -1,0 +1,995 @@
+<!----------------------------------------------
+  -- Frame Configuration Page
+  ----------------------------------------------
+  -- NOTES:
+  -- minify JS (https://skalman.github.io/UglifyJS-online/)
+  -- minify CSS (https://www.minifier.org/)
+  -- to run with mock data, set the variable called 'dataTestMode' at the top of the javascript to true
+  -->
+<HTML>
+<head>
+	<title>PixelCon Frame</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<style>
+	*:focus { outline:0; outline:none; }
+	.backgroundimage { background-size:640px; background-color:#ffffff; background-image: url(data:image/png;base64,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) }
+	.pixelated { -ms-interpolation-mode:nearest-neighbor; image-rendering:-moz-crisp-edges; image-rendering:-webkit-crisp-edges; image-rendering:-webkit-optimize-contrast; image-rendering:pixelated; image-rendering:crisp-edges; }	
+	.textSelectable { -webkit-user-select:text; -moz-user-select:text; -ms-user-select:text; -o-user-select:text; user-select:text; }
+	.textNotSelectable { -webkit-user-select:none; -moz-user-select:none; -ms-user-select:none; -o-user-select:none; user-select:none; }
+	.noselect { -webkit-user-select:none; -moz-user-select:none; -ms-user-select:none; -o-user-select:none; user-select:none; }
+	.standardtext { font-family:Roboto,Helvetica Neue,sans-serif; color:rgba(0,0,0,0.87); font-size:16px; }
+	.shadow { box-shadow: 0 1px 3px 0 rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 2px 1px -1px rgba(0,0,0,.12); }
+	.spacer { width:100%; height:15px; }
+	.switch { position:relative; display:inline-block; vertical-align:middle; width:50px; height:24px; }
+	.switch input { opacity:0; width:0; height:0; }
+	.toggle { position:absolute; cursor:pointer; top:0; left:0; right:0; bottom:0; background-color:#ccc; -webkit-transition:.2s; transition:.2s; }
+	.toggle:before { position:absolute; content:""; height:18px; width:18px; left:3px; bottom:3px; background-color:white; -webkit-transition:.2s; transition:.2s; }
+	.toggle.round { border-radius:30px; }
+	.toggle.round:before { border-radius:50%; }
+	input:checked + .toggle { background-color:#2196F3; }
+	input:checked + .toggle:before { -webkit-transform:translateX(26px); -ms-transform:translateX(26px); transform:translateX(26px); }
+	.slider { -webkit-appearance:none; width:100%; height:10px; border-radius:5px; background:#ccc; outline:none; box-shadow: 0 1px 3px 0 rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 2px 1px -1px rgba(0,0,0,.12); }
+	.slider::-webkit-slider-thumb { -webkit-appearance:none; appearance:none; width:20px; height:20px; border-radius:50%; background:#2196F3; cursor:pointer; box-shadow: 0 1px 3px 0 rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 2px 1px -1px rgba(0,0,0,.12); }
+	.slider::-moz-range-thumb { width:20px; height:20px; border-radius:50%; background:#2196F3; cursor:pointer; box-shadow: 0 1px 3px 0 rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 2px 1px -1px rgba(0,0,0,.12); }
+	.slider::-moz-range-track { background-color:#ccc; }
+	.label { display:inline-block; font-weight:600; margin-right:5px; vertical-align:middle; }
+	.textButton { display:inline-block; font-weight:500; background-color:#d4d4d4; color:#404040; padding:2px 7px; margin-top:-8px; cursor:pointer; }
+	.textButton:hover { background-color:#b7b7b7; }
+	.inputbox { display:inline-block; height:27px; width:100px; border:0px; padding:3px; text-align:center; vertical-align:middle; margin:2px; }
+	.inputbox:disabled { font-size:0px; background-color:#ccc; }
+	.section { position:relative; margin:10px; padding:10px; background-color:rgba(255, 255, 255, 0.7); }
+	.roundbutton { width:25px; min-width:25px; height:25px; border-radius:50%; text-align:center; font-weight:60; font-size:25px; line-height:25px; margin-right:5px; cursor:pointer; }
+	.roundbutton.remove { line-height:22px; color:#ffffff; background-color:#ababab; }
+	.roundbutton.add { line-height:25px; color:#ffffff; background-color:#2196f3; }
+	.squarebutton { display:inline-block; vertical-align:middle; width:80px; height:32px; text-align:center; line-height:32px; font-size:18px; cursor:pointer; background-color:#2196f3; color:#ffffff; line-height:32px; font-size:15px; font-weight:600; }
+	.squareButton:hover { background-color:#1a6cad; }
+	.squareButton.disabled { background-color:rgba(0,0,0,0.12); color:rgba(0,0,0,0.38); box-shadow:none; cursor:inherit; }
+	.pixelconcontainer { padding:2px; height:33px; width:100%; min-width:105px; background-color:rgba(128, 128, 128, 0.7); margin-left:3px; white-space:nowrap; overflow:hidden; }
+	.staticpixelconcontainer { width:100%; min-height:300px; max-height:calc(100% - 220px); background-color:rgba(128, 128, 128, 0.7); padding:5px; box-sizing:border-box; overflow-y:auto; text-align:center; }
+	.staticPixelcon { position:relative; display:inline-block; vertical-align:middle; width:60px; height:60px; background-color:#000; margin:5px; background-size:cover; cursor:pointer; }
+	.staticPixelconShade { display:none; position:absolute; top:0; bottom:0; left:0; right:0; background-color:rgba(51, 51, 51, 0.4); }
+	.staticPixelcon:hover .staticPixelconShade { display:block; }
+	.staticPixelconIcon { width:100%; height:100%; line-height:60px; cursor:pointer; color:#e6e6e6; font-size:35px; }
+	.sourcePreviewText { display:inline-block; vertical-align:middle; font-size:15px; color:#000; font-weight:500; line-height:34px; margin-left:5px; }
+	.sourcePreviewPixelconContainer { display:inline-block; vertical-align:middle; overflow:hidden; height:100%; max-width:100%; white-space:nowrap; }
+	.sourcePreviewPixelcon { width:30px; height:30px; display:inline-block; background-size:cover; margin:2px; }
+	.header { position:relative; background-color:#fafafa; box-shadow:0 1px 7px 0 rgba(0, 0, 0, 0.4); width:100%; height:50px; }
+	.title { position:absolute; top:0; bottom:0; left:0; right:0; text-align:center; line-height:50px; font-size:24px; }
+	.logo { position:absolute; top:4px; left:18px; width:40px; height:40px; cursor:pointer }
+	.logotxt { line-height:40px; text-shadow:0 0 30px #989898; font-size:15px; color:#333; font-weight:600; margin-left:-35%; width:72px; }
+	.logoimg { position:absolute; width:12px; height:12px; box-shadow:0 1px 3px 0 rgba(0, 0, 0, 0.3); }
+	.pageShade { position:absolute; background-color:rgba(51, 51, 51, 0.4); top:0; bottom:0; left:0; right:0; }
+	.messageBox { margin:150px auto 0px auto; font-weight:700; font-size:26px; text-align:center; }
+</style>
+<body class="backgroundimage pixelated standardtext textNotSelectable" style="width:100%; height:100%; margin:0px; padding:0px; background-color:#c7c7c7;">
+	<div class="header">
+		<div class="title">Frame Config</div>
+		<a href="https://pixelcons.io/">
+			<div class="logo">
+				<div class="logotxt">PixelCons</div>
+				<img id="logoimg0" class="logoimg pixelated" style="top:0px; left:0px;"></img>
+				<img id="logoimg1" class="logoimg pixelated" style="top:0px; left:50%; margin-left:-6px;"></img>
+				<img id="logoimg2" class="logoimg pixelated" style="top:0px; right:0px;"></img>
+				<img id="logoimg3" class="logoimg pixelated" style="bottom:0px; left:0px;"></img>
+				<img id="logoimg4" class="logoimg pixelated" style="bottom:0px; left:50%; margin-left:-6px;"></img>
+				<img id="logoimg5" class="logoimg pixelated" style="bottom:0px; right:0px;"></img>
+			</div>
+		</a>
+		<div id="saveButton" class="squarebutton disabled shadow" style="position:absolute; top:9px; right:5px;">SAVE</div>
+	</div>
+	
+	<div style="max-height:calc(100% - 50px); overflow-y:auto; overflow-x:hidden;">
+		<div id="loadingBox" class="section messageBox" style="width:150px;">Loading...</div>
+		
+		<div id="topSection" class="section" style="display:none;">
+			<div class="label">Brightness</div>
+			<div style="display:inline-block; width:calc(100% - 100px); max-width:300px">
+				<input id="brightness" type="range" min="10" max="100" class="slider">
+			</div>
+			<div class="spacer"></div>
+			<div class="label">Duration</div>
+			<input id="duration" class="inputbox standardtext shadow" type="number" min="5" max="3600" style="width:60px;">
+			<div id="importExport" class="squarebutton shadow" style="width:110px; float:right; height:30px; line-height:30px;">Import/Export</div>
+		</div>
+		
+		<div id="bottomSection" class="section" style="display:none;">
+			<label class="switch">
+				<input id="viewModeCheckbox" type="checkbox">
+				<span class="toggle round shadow"></span>
+			</label>
+			<div class="label">Static Mode</div>
+			<div class="spacer"></div>
+
+			<div id="dynamicModeView">
+				<div class="label" style="margin-left:35px; width:98px;">Source</div>
+				<div class="label">ID</div>
+				<div id="refreshButton" class="textButton" style="float:right;">Refresh</div>
+				<div id="sourceList" style="width:100%;">
+					<div id="sourceContainerTemplate" style="font-size:0px; width:100%; display:flex; align-items:center;">
+						<div id="sourceRemoveTemplate" class="roundbutton remove shadow noselect">-</div>
+						<select id="sourceTypeTemplate" class="inputbox standardtext shadow" style="min-width:100px;">
+							<option value="3">Owner</option><option value="1">Creator</option><option value="2">Collection</option><option value="4">All</option>
+						</select>
+						<input id="sourceIdTemplate" class="inputbox standardtext shadow" value="" style="width:100%; min-width:70px; max-width:200px; text-align:left;">
+						<div id="sourcePreviewTemplate" class="pixelconcontainer">
+							<div class="sourcePreviewPixelconContainer"></div>
+							<div class="sourcePreviewText"></div>
+						</div>
+					</div>
+				</div>
+				<div id="sourceAdd" class="roundbutton add shadow noselect" style="margin-top:5px;">+</div>
+			</div>
+			
+			<div id="staticModeView" class="staticpixelconcontainer">
+				<div id="staticPixelconTemplate" class="staticPixelcon pixelated">
+					<div class="staticPixelconShade staticPixelconIcon" style="font-size:14px;">Remove</div>
+				</div>
+				<div id="staticModeAdd" class="staticPixelcon" style="background-color:#5a5a5a;"><div class="staticPixelconIcon">+</div></div>
+			</div>
+		</div>
+	</div>
+	<div id="pageShade" class="pageShade" style="display:none;">
+		<div id="savingBox" class="section messageBox" style="width:150px;">Saving...</div>
+		<div id="editStaticPixelconWindow" class="section messageBox" style="width:300px; margin-top:100px;">
+			<div style="width:240px; height:240px; margin:5px; background-color:rgba(128, 128, 128, 0.7); display:inline-block; padding:8px;">
+				<div id="staticPixelconPreview" style="width:100%; height:100%; background-size:cover; line-height:240px;"></div>
+			</div>
+			<input id="staticPixelconPreviewId" class="inputbox standardtext shadow" value="" style="width:100%; min-width:70px; max-width:200px; text-align:left;">
+			<div style="height:10px;"></div>
+			<div id="staticPixelconPreviewButton" class="squarebutton shadow" style="width:110px; height:30px; line-height:30px;">Add</div>
+		</div>
+		<div id="importExportWindow" class="section messageBox" style="width:700px; height:500px; max-width:calc(100% - 40px); margin-top:55px; max-height:calc(100% - 100px); overflow:hidden;">
+			<div class="label" style="width:100%; text-align:left; padding-left:10px;">Configuration Data</div>
+			<textarea id="importExportJson" class="inputbox standardtext shadow" wrap="hard" style="resize:none; width:calc(100% - 10px); height:calc(100% - 75px); text-align:left;"></textarea>
+			<div id="importStatus" style="display:inline-block; margin-top:5px; margin-left:10px; font-size:16px; float:left; text-align:left; max-width:calc(100% - 130px);"></div>
+			<div id="importButton" class="squarebutton shadow" style="width:110px; height:30px; line-height:30px; float:right; margin-top:5px; margin-right:5px;">Import</div>
+		</div>
+	</div>
+<script>
+	var dataTestMode = true;
+	var jsonData = {};
+	var loadedJSONData = "";
+	var requestQueue = [];
+	var numPendingRequests = 0;
+	var maxRequests = 2;
+	
+	var loadingBox = document.getElementById("loadingBox");
+	var savingBox = document.getElementById("savingBox");
+	var topSection = document.getElementById("topSection");
+	var bottomSection = document.getElementById("bottomSection");
+	var pageShade = document.getElementById("pageShade");
+	
+	var brightness = document.getElementById("brightness");
+	var duration = document.getElementById("duration");
+	var saveButton = document.getElementById("saveButton");
+	
+	var importExport = document.getElementById("importExport");
+	var importExportJson = document.getElementById("importExportJson");
+	var importStatus = document.getElementById("importStatus");
+	var importButton = document.getElementById("importButton");
+	
+	var viewModeCheckbox = document.getElementById("viewModeCheckbox");
+	var dynamicModeView = document.getElementById("dynamicModeView");
+	var staticModeView = document.getElementById("staticModeView");
+
+	var sourceList = document.getElementById("sourceList");
+	var sourceContainerTemplate = document.getElementById("sourceContainerTemplate");
+	var sourceRemoveTemplate = document.getElementById("sourceRemoveTemplate");
+	var sourceTypeTemplate = document.getElementById("sourceTypeTemplate");
+	var sourceIdTemplate = document.getElementById("sourceIdTemplate");
+	var sourcePreviewTemplate = document.getElementById("sourcePreviewTemplate");
+	sourceContainerTemplate.parentNode.removeChild(sourceContainerTemplate);
+	
+	var sourceAdd = document.getElementById("sourceAdd");
+	var refreshButton = document.getElementById("refreshButton");
+	
+	var staticPixelconTemplate = document.getElementById("staticPixelconTemplate");
+	var staticModeAdd = document.getElementById("staticModeAdd");
+	staticPixelconTemplate.parentNode.removeChild(staticPixelconTemplate);
+	
+	var staticPixelconPreview = document.getElementById("staticPixelconPreview");
+	var staticPixelconPreviewId = document.getElementById("staticPixelconPreviewId");
+	var staticPixelconPreviewButton = document.getElementById("staticPixelconPreviewButton");
+	
+	
+	// Page Basics/Init ///////////////////////////////////////////////////////////////////////////////////////////////////////
+	pageShade.show = function(elemId, clickToClose) {
+		pageShade.clickToClose = clickToClose;
+		for(var i=0; i<pageShade.children.length; i++) {
+			var elem = pageShade.children[i];
+			elem.style.display = (elem.id==elemId)?'':'none';
+		}
+		pageShade.style.display = '';
+	}
+	pageShade.hide = function() {
+		pageShade.style.display = 'none';
+	}
+	pageShade.onclick = function(e) {
+		if(pageShade.clickToClose && e.srcElement==pageShade) pageShade.hide();
+	}
+	
+	var colorPalette = { '0':'#000000', '1':'#1D2B53', '2':'#7E2553', '3':'#008751', '4':'#AB5236', '5':'#5F574F', '6':'#C2C3C7', '7':'#FFF1E8', '8':'#FF004D', '9':'#FFA300', 'a':'#FFFF27', 'b':'#00E756', 'c':'#29ADFF', 'd':'#83769C', 'e':'#FF77A8', 'f':'#FFCCAA' }
+	function pixelconDataUrl(id) {
+		id = formatPixelcon(id);
+		if(!id) return "";
+		
+		var canvas = document.createElement('canvas');
+		canvas.width = 24;
+		canvas.height = 24;
+		var ctx = canvas.getContext("2d");
+		for(var y=0; y<8; y++) {
+			for(var x=0; x<8; x++) {
+				var index = y*8 + x;
+				ctx.fillStyle = colorPalette[id[index]];
+				ctx.fillRect(x*3, y*3, (x*3)+3, (y*3)+3);
+			}
+		}
+		return canvas.toDataURL('image/png');
+	}
+	document.getElementById("logoimg0").src = pixelconDataUrl('9a4994999499994999999999920990299cc99cc99cc77cc99cc00cc99cc9acc9');
+	document.getElementById("logoimg1").src = pixelconDataUrl('9a99999999999099900490999999999994999949994224999998899999988999');
+	document.getElementById("logoimg2").src = pixelconDataUrl('3b1331333133331333033033330330333331333333b303333333133333333333');
+	document.getElementById("logoimg3").src = pixelconDataUrl('8e8888888228822888022088880880888888888888e77e8882777728888ee888');
+	document.getElementById("logoimg4").src = pixelconDataUrl('9a999999990990999909909999999999907777099400004999477499999aa999');
+	document.getElementById("logoimg5").src = pixelconDataUrl('9a99999999999999944994499999999994000049903bb30994bbbb4999bbbb99');
+	
+	
+	// Utils //////////////////////////////////////////////////////////////////////////////////////////////////
+	function triggerOnChange(input, callback) {
+		var t = null;
+		var delay = 500;
+		var delayedAction = function() {
+			if(t) {
+				clearTimeout(t);
+				t = null;
+			}
+			t = setTimeout(function() {
+				callback.call(input);
+			}, delay);
+		}
+		input.oninput = delayedAction;
+	}
+	function formatId(id, isCollection) {
+		if(isCollection) {
+			var num = parseInt(id);
+			if(isNaN(num) || !num || num>Math.pow(2,64)) return null;
+			return (""+num).padStart(40, '0');
+		} else {
+			id = id.toLowerCase();
+			if(id.indexOf('0x') == 0) id = id.substr(2,id.length);
+			if(id.length != 40) return null;
+			for(var i=0; i<40; i++) {
+				var v = id.charCodeAt(i);
+				if(!(v >= 48 && v <= 57) && !(v >= 97 && v <= 102)) return null;
+			}
+			return id;
+		}
+	}
+	function formatPixelcon(id) {
+		id = id.toLowerCase();
+		if(id.indexOf('0x') == 0) id = id.substr(2,id.length);
+		if(id.length != 64) return null;
+		for(var i=0; i<64; i++) {
+			var v = id.charCodeAt(i);
+			if(!(v >= 48 && v <= 57) && !(v >= 97 && v <= 102)) return null;
+		}
+		return id;
+	}
+	
+	
+	// Basics Config ////////////////////////////////////////////////////////////////////////////////////////////////////
+	function enableDisableSaveButton() {
+		if(jsonDataChanged(jsonData)) saveButton.classList.remove('disabled');
+		else if(!saveButton.classList.contains('disabled')) saveButton.classList.add('disabled');
+	}
+	function clickSaveButton() {
+		setData(jsonData, enableDisableSaveButton);
+	}
+	saveButton.onclick = clickSaveButton;
+	
+	function setBrightness() {
+		jsonData.brightness = parseInt(brightness.value);
+		enableDisableSaveButton();
+	}
+	function setDuration() {
+		var d = parseInt(duration.value);
+		if(!isNaN(d)) {
+			if(d < 5) d = 5;
+			if(d > 3600) d = 3600;
+			duration.value = ""+d;
+		} else {
+			d = JSON.parse(loadedJSONData).duration;
+		}
+		jsonData.duration = d;
+		enableDisableSaveButton();
+	}
+	function setDurationDone() {
+		var d = parseInt(duration.value);
+		if(isNaN(d)) {
+			d = JSON.parse(loadedJSONData).duration;
+			jsonData.duration = d;
+			duration.value = ""+d;
+			enableDisableSaveButton();
+		}
+	}
+	brightness.onchange = setBrightness;
+	duration.oninput = setDuration;
+	duration.onchange = setDurationDone;
+	
+	function setViewMode() {
+		if(viewModeCheckbox.checked) {
+			jsonData.staticMode = true;
+			staticModeView.style.display = '';
+			dynamicModeView.style.display = 'none';
+		} else {
+			jsonData.staticMode = false;
+			staticModeView.style.display = 'none';
+			dynamicModeView.style.display = '';
+		}
+		enableDisableSaveButton();
+	}
+	viewModeCheckbox.onchange = setViewMode;
+	
+	
+	// Import/Export ////////////////////////////////////////////////////////////////////////////////////////////////////
+	function cleanForExport(data) {
+		var cleaned = JSON.parse(JSON.stringify(data));
+		cleaned.staticMode = data.staticMode;
+		cleaned.rpcClient = data.rpcClient;
+		cleaned.brightness = data.brightness;
+		cleaned.duration = data.duration;
+		cleaned.sources = [];
+		for(var i=0; i<data.sources.length; i++) {
+			var id = formatId(data.sources[i].id, data.sources[i].type==2);
+			if(data.sources[i].type==4) id = "";
+			if(id !== null) {
+				var source = {};
+				var types = ['None','Creator','Collection','Owner','All'];
+				source.type = types[data.sources[i].type];
+				if(id) {
+					if(data.sources[i].type==2) source.id = ""+parseInt(id);
+					else source.id = '0x' + id;
+				} else {
+					source.id = data.id;
+				}
+				cleaned.sources.push(source);
+			}
+		}
+		cleaned.staticPixelcon = [];
+		for(var i=0; i<data.staticPixelcon.length; i++) {
+			cleaned.staticPixelcon.push('0x' + data.staticPixelcon[i]);
+		}
+		return JSON.stringify(cleaned, null, 4);
+	}
+	function cleanForImport(dataString) {
+		try {
+			var data = JSON.parse(dataString);
+			var cleaned = {};
+			cleaned.staticMode = (data.staticMode!==undefined)?(data.staticMode===true||data.staticMode==="true"):jsonData.staticMode;
+			cleaned.rpcClient = (data.rpcClient!==undefined)?data.rpcClient:jsonData.rpcClient;
+			cleaned.brightness = (data.brightness!==undefined)?parseInt(data.brightness):jsonData.brightness;
+			if(cleaned.brightness < 10) cleaned.brightness = 10;
+			if(cleaned.brightness > 100) cleaned.brightness = 100;
+			cleaned.duration = (data.duration!==undefined)?parseInt(data.duration):jsonData.duration;
+			if(cleaned.duration < 5) cleaned.duration = 5;
+			if(cleaned.duration > 3600) cleaned.duration = 3600;
+			if(data.sources===undefined) cleaned.sources = jsonData.sources;
+			else {
+				cleaned.sources = [];
+				for(var i=0; i<data.sources.length; i++) {
+					var type = (""+data.sources[i].type).trim().toLowerCase();
+					if(type == 'creator' || type == '1') type = 1;
+					else if(type == 'collection' || type == '2') type = 2;
+					else if(type == 'owner' || type == '3') type = 3;
+					else if(type == 'all' || type == '4') type = 4;
+					else type = null;
+					var id = (type==4)?"":formatId(data.sources[i].id.trim(), type==2);
+					if(type!==null && id!==null) {
+						var source = {};
+						source.type = type;
+						source.id = id;
+						cleaned.sources.push(source);
+					}
+				}
+			} 
+			if(data.staticPixelcon===undefined) cleaned.staticPixelcon = jsonData.staticPixelcon;
+			else {
+				cleaned.staticPixelcon = [];
+				for(var i=0; i<data.staticPixelcon.length && i<100; i++) {
+					var id = formatPixelcon(data.staticPixelcon[i].trim());
+					if(id) cleaned.staticPixelcon.push(id);
+				}
+			}
+			return cleaned;
+		}
+		catch(err) { }
+		return null;
+	}
+	function doImport() {
+		var data = cleanForImport(importExportJson.value);
+		if(data) {
+			loadData(data);
+			pageShade.hide();
+		} else {
+			importStatus.innerText = "Error Processing Configuration";
+		}
+	}
+	function doImportExport() {
+		importStatus.innerText = "";
+		importExportJson.value = cleanForExport(jsonData);
+		pageShade.show('importExportWindow', true);
+	}
+	importExport.onclick = doImportExport;
+	importButton.onclick = doImport;
+	
+	
+	// Source Config ////////////////////////////////////////////////////////////////////////////////////////////////////
+	function crudSourceLine(index, data) {
+		var element = document.getElementById("sourceContainer"+index);
+		if(data) {
+			if(element) {
+				var sourceType = document.getElementById("sourceType"+index);
+				sourceType.value = ""+data.type;
+				var sourceId = document.getElementById("sourceId"+index);
+				var id = formatId(data.id, data.type==2);
+				if(id) {
+					if(data.type==2) sourceId.value = ""+parseInt(id);
+					else sourceId.value = '0x' + id;
+				} else {
+					sourceId.value = data.id;
+				}
+				sourceId.disabled = (data.type==4);
+			} else {
+				var sourceContainer = sourceContainerTemplate.cloneNode(false);
+				sourceContainer.id = "sourceContainer" + index;
+				sourceList.appendChild(sourceContainer);
+				
+				var sourceRemove = sourceRemoveTemplate.cloneNode(true);
+				sourceRemove.id = "sourceRemove" + index;
+				sourceRemove.onclick = removeSourceClick;
+				sourceContainer.appendChild(sourceRemove);
+				
+				var sourceType = sourceTypeTemplate.cloneNode(true);
+				sourceType.id = "sourceType" + index;
+				sourceType.value = ""+data.type;
+				sourceType.onchange = setSourceType;
+				sourceContainer.appendChild(sourceType);
+				
+				var sourceId = sourceIdTemplate.cloneNode(true);
+				sourceId.id = "sourceId" + index;
+				var id = formatId(data.id, data.type==2);
+				if(id) {
+					if(data.type==2) sourceId.value = ""+parseInt(id);
+					else sourceId.value = '0x' + id;
+				} else {
+					sourceId.value = data.id;
+				}
+				sourceId.disabled = (data.type==4);
+				triggerOnChange(sourceId, setSourceId);
+				sourceContainer.appendChild(sourceId);
+				
+				var sourcePreview = sourcePreviewTemplate.cloneNode(true);
+				sourcePreview.id = "sourcePreview" + index;
+				sourceContainer.appendChild(sourcePreview);
+			}
+			updateSourcePreview(index);
+		} else if(element) {
+			element.parentNode.removeChild(element);
+		}
+	}
+	function getSourceIndex(sourceElement) { return parseInt(sourceElement.id.substring(sourceElement.id.length-1, sourceElement.id.length)); }
+	function addSourceClick() {
+		if(jsonData.sources.length < 10) jsonData.sources.push({type:1,id:''});
+		showSources();
+		enableDisableSaveButton();
+	}
+	sourceAdd.onclick = addSourceClick;
+	
+	function fetchPixelconForSource(source) {
+		var loadingId = source.type + '_' + source.id;
+		if(!source.loading || source.loading.indexOf(loadingId) != 0) {
+			loadingId += '_' + Math.floor(Math.random()*100000000);
+			source.pixelcon = null;
+			source.loading = loadingId;
+			
+			var finish = function(pixelcon) {
+				source.pixelcon = pixelcon?pixelcon:'error';
+				for(var i=0; i<jsonData.sources.length; i++) {
+					if(jsonData.sources[i].loading == source.loading) {
+						source.loading = null;
+						updateSourcePreview(i);
+						break;
+					}
+				}
+				source.loading = null;
+			}
+			if(source.type == 1) getForCreator(source.id, finish);
+			else if(source.type == 2) getForCollection(source.id, finish);
+			else if(source.type == 3) getForOwner(source.id, finish);
+			else if(source.type == 4) getAll(finish);
+			else finish(null);
+		}
+	}
+	function updateSourcePreview(index) {
+		var source = jsonData.sources[index]
+		var sourcePreviewText = document.getElementById("sourcePreview"+index).getElementsByClassName("sourcePreviewText")[0];
+		var sourcePixelcon = document.getElementById("sourcePreview"+index).getElementsByClassName("sourcePreviewPixelconContainer")[0];
+		while(sourcePixelcon.firstChild) sourcePixelcon.removeChild(sourcePixelcon.firstChild);
+		if(source.pixelcon) {
+			if(source.pixelcon == 'error') {
+				sourcePreviewText.innerText = "ERROR";
+			} else if(source.pixelcon.length > 0) {
+				for(var p=0; p<source.pixelcon.length && p<25; p++) {
+					var pixelcon = document.createElement("div");
+					pixelcon.style.backgroundImage = "url(" + pixelconDataUrl(source.pixelcon[p]) + ")";
+					pixelcon.classList.add('sourcePreviewPixelcon');
+					sourcePixelcon.appendChild(pixelcon);
+				}
+				if(source.pixelcon.length <= 25) sourcePreviewText.innerText = "";
+				else sourcePreviewText.innerText = "+" + (source.pixelcon.length-25);
+			} else {
+				sourcePreviewText.innerText = "No PixelCons";
+			}
+		} else {
+			var sourceType = parseInt(document.getElementById("sourceType"+index).value);
+			var sourceId = formatId(document.getElementById("sourceId"+index).value, sourceType==2);
+			if(sourceType!=4 && !sourceId) {
+				sourcePreviewText.innerText = "Invalid ID";
+			} else {
+				sourcePreviewText.innerText = "Loading...";
+				fetchPixelconForSource(jsonData.sources[index]);
+			}
+		}
+	}
+	
+	function showSources() {
+		if(jsonData.sources.length == 0) jsonData.sources.push({type:1,id:''});
+		for(var i=0; i<10; i++) crudSourceLine(i, jsonData.sources[i]);
+		sourceAdd.style.display = (jsonData.sources.length < 10)?'':'none';
+	}
+	function removeSourceClick() {
+		var index = getSourceIndex(this);
+		jsonData.sources.splice(index, 1); 
+		showSources();
+		enableDisableSaveButton();
+	}
+	
+	function setSourceType() {
+		var index = getSourceIndex(this);
+		jsonData.sources[index].type = parseInt(this.value);
+		var inputBox = document.getElementById('sourceId'+index);
+		inputBox.disabled = (parseInt(this.value)==4);
+		
+		jsonData.sources[index].pixelcon = null;
+		updateSourcePreview(index);
+		enableDisableSaveButton();
+	}
+	function setSourceId() {
+		var index = getSourceIndex(this);
+		var sourceType = parseInt(document.getElementById("sourceType"+index).value);
+		var id = formatId(this.value, sourceType==2);
+		if(id) {
+			jsonData.sources[index].id = id;
+			if(sourceType==2) this.value = ""+parseInt(id);
+			else this.value = '0x' + id;
+		} else {
+			jsonData.sources[index].id = this.value;
+		}
+		
+		jsonData.sources[index].pixelcon = null;
+		updateSourcePreview(index);
+		enableDisableSaveButton();
+	}
+	
+	function refreshSources() {
+		for(var i=0; i<jsonData.sources.length; i++) { 
+			jsonData.sources[i].pixelcon = null;
+			updateSourcePreview(i);
+		}
+	}
+	refreshButton.onclick = refreshSources;
+	
+	
+	// Static Pixelcon Config ////////////////////////////////////////////////////////////////////////////////////////////////////
+	function crudStaticPixelcon(index, id) {
+		var element = document.getElementById("staticPixelcon"+(index+"").padStart(2,"0"));
+		if(id) {
+			if(!element) {
+				element = staticPixelconTemplate.cloneNode(true);
+				element.id = "staticPixelcon" + (index+"").padStart(2,"0");
+				element.onclick = editStaticPixelcon;
+				element.onmouseenter = function() { setTimeout(function() { element.isClicking = true; }); };
+				element.onmouseleave = function() { setTimeout(function() { element.isClicking = false; }); };
+				staticModeView.insertBefore(element, staticModeAdd)
+			}
+			element.style.backgroundImage = "url(" + pixelconDataUrl(id) + ")";
+		} else if(element) {
+			element.parentNode.removeChild(element);
+		}
+	}
+	function showStaticPixelcon() {
+		for(var i=0; i<100; i++) crudStaticPixelcon(i, jsonData.staticPixelcon[i]);
+		staticModeAdd.style.display = (jsonData.staticPixelcon.length < 100)?'':'none';
+	}
+	
+	function getStaticPixelconIndex(sourceElement) { return parseInt(sourceElement.id.substring(sourceElement.id.length-2, sourceElement.id.length)); }
+	function editStaticPixelcon() {
+		var index = getStaticPixelconIndex(this);
+		if(!this.isClicking) {
+			staticPixelconPreview.style.backgroundImage = "url(" + pixelconDataUrl(jsonData.staticPixelcon[index]) + ")";
+			staticPixelconPreview.innerText = '';
+			staticPixelconPreviewId.style.display = 'none';
+			staticPixelconPreviewButton.innerText = "Remove";
+			staticPixelconPreviewButton.classList.remove('disabled');
+			staticPixelconPreviewButton.onclick = function() {
+				jsonData.staticPixelcon.splice(index, 1); 
+				showStaticPixelcon();
+				enableDisableSaveButton();
+				pageShade.hide();
+			}
+			pageShade.show('editStaticPixelconWindow', true);
+		} else {
+			jsonData.staticPixelcon.splice(index, 1); 
+			showStaticPixelcon();
+			enableDisableSaveButton();
+		}
+	}
+	function addStaticPixelcon() {
+		staticPixelconPreviewId.style.display = '';
+		staticPixelconPreviewButton.innerText = "Add";
+		setPixelconPreviewId();
+		staticPixelconPreviewButton.onclick = function() {
+			var id = formatPixelcon(staticPixelconPreviewId.value);
+			if(id) {
+				jsonData.staticPixelcon.push(id); 
+				staticPixelconPreviewId.value = '';
+				showStaticPixelcon();
+				enableDisableSaveButton();
+				pageShade.hide();
+			}
+		}
+		pageShade.show('editStaticPixelconWindow', true);
+	}
+	staticModeAdd.onclick = addStaticPixelcon;
+	
+	function setPixelconPreviewId() {
+		var id = formatPixelcon(staticPixelconPreviewId.value);
+		if(id) {
+			staticPixelconPreviewButton.classList.remove('disabled');
+			staticPixelconPreview.style.backgroundImage = "url(" + pixelconDataUrl(id) + ")";
+			staticPixelconPreview.innerText = "";
+		} else {
+			if(!staticPixelconPreviewButton.classList.contains('disabled')) staticPixelconPreviewButton.classList.add('disabled');
+			staticPixelconPreview.style.backgroundImage = "";
+			staticPixelconPreview.innerText = "Invalid ID";
+		}
+	}
+	triggerOnChange(staticPixelconPreviewId, setPixelconPreviewId);
+		
+	
+	// Page Load/Init /////////////////////////////////////////////////////////////////////////////////////////////////////////
+	function loadData(data) {
+		if(!data) return;
+		jsonData = data;
+	
+		viewModeCheckbox.checked = jsonData.staticMode;
+		brightness.value = jsonData.brightness;
+		duration.value = jsonData.duration;
+
+		setViewMode();
+		showSources();
+		showStaticPixelcon();
+		enableDisableSaveButton();
+	}
+	getData(loadData);
+	
+	
+	// HTTP Requests /////////////////////////////////////////////////////////////////////////////////////////////////////////
+	function checkRequestQueue() {
+		while(numPendingRequests < maxRequests && requestQueue.length > 0) {
+			var request = requestQueue.shift();
+			httpRequest(request.method, request.url, request.data, request.callback);
+		}
+	}
+	function httpGet(url, callback) {
+		requestQueue.push({ method:"GET", url:url, data:null, callback:callback });
+		checkRequestQueue();
+	}
+	function httpPOST(url, data, callback) {
+		requestQueue.push({ method:"POST", url:url, data:data, callback:callback });
+		checkRequestQueue();
+	}
+	function httpRequest(method, url, data, callback) {
+		numPendingRequests++;
+		var done = false;
+		var payload = null;
+		if(data) payload = JSON.stringify(data);
+		
+		var xmlHttp = new XMLHttpRequest();
+		xmlHttp.onreadystatechange = function() {
+			if(!done && xmlHttp.readyState==4) {
+				if(callback) callback((xmlHttp.status==200)?xmlHttp.responseText:null);
+				numPendingRequests--;
+				done = true;
+				checkRequestQueue();
+			}
+		}
+		xmlHttp.open(method, url, true);
+		xmlHttp.send(payload);
+	}
+	
+	
+	// RPC Client Calls /////////////////////////////////////////////////////////////////////////////////////////////////////////
+	function getForCreator(creator, callback) {
+		var rpcClient = jsonData.rpcClient?jsonData.rpcClient:"mainnet.infura.io/v3/07d72fe8b8b74534a05d2091e108e26e";
+		var getForCreator = {"jsonrpc":"2.0", "id":1, "method":"eth_call", "params":[{
+			"to": "0x5536B6aAdd29eAf0DB112Bb28046A5FaD3761bD4",
+			"data": "0xd4aa25cc000000000000000000000000" + creator
+		}, "latest"]};
+		httpPOST('https://'+rpcClient, getForCreator, function(res) {
+			if(res) getBasicDataFromFullArray(res, callback);
+			else if(callback) callback(null);
+		});
+	}
+	
+	function getForOwner(owner, callback) {
+		var rpcClient = jsonData.rpcClient?jsonData.rpcClient:"mainnet.infura.io/v3/07d72fe8b8b74534a05d2091e108e26e";
+		var getForOwner = {"jsonrpc":"2.0", "id":1, "method":"eth_call", "params":[{
+			"to": "0x5536B6aAdd29eAf0DB112Bb28046A5FaD3761bD4",
+			"data": "0x57643118000000000000000000000000" + owner
+		}, "latest"]};
+		httpPOST('https://'+rpcClient, getForOwner, function(res) {
+			if(res) getBasicDataFromFullArray(res, callback);
+			else if(callback) callback(null);
+		});
+	}
+	
+	function getForCollection(collection, callback) {
+		var rpcClient = jsonData.rpcClient?jsonData.rpcClient:"mainnet.infura.io/v3/07d72fe8b8b74534a05d2091e108e26e";
+		var getForCollection = {"jsonrpc":"2.0", "id":1, "method":"eth_call", "params":[{
+			"to": "0x5536B6aAdd29eAf0DB112Bb28046A5FaD3761bD4",
+			"data": "0xad732154000000000000000000000000" + collection
+		}, "latest"]};
+		httpPOST('https://'+rpcClient, getForCollection, function(res) {
+			if(res) getBasicDataFromFullArray(res, callback);
+			else if(callback) callback(null);
+		});
+	}
+	
+	function getAll(callback) {
+		var rpcClient = jsonData.rpcClient?jsonData.rpcClient:"mainnet.infura.io/v3/07d72fe8b8b74534a05d2091e108e26e";
+		var totalSupply = {"jsonrpc":"2.0", "id":1, "method":"eth_call", "params":[{
+			"to": "0x5536B6aAdd29eAf0DB112Bb28046A5FaD3761bD4",
+			"data": "0x18160ddd"
+		}, "latest"]};
+		httpPOST('https://'+rpcClient, totalSupply, function(res) {
+			if(res) {
+				var total = parseInt(JSON.parse(res).result, 16);
+				if(total == 0) callback([]);
+				else {
+					var count = total;
+					if(count > 25) count = 25;
+					var arrayString = "0000000000000000000000000000000000000000000000000000000000000020" + count.toString(16).padStart(64, "0");
+					for(var i=0; i<count; i++) {
+						var rndIndex = Math.floor(Math.random() * total);
+						arrayString += rndIndex.toString(16).padStart(64, "0");
+					}
+					getBasicData(arrayString, function(pixelcons) {
+						if(pixelcons) {
+							pixelcons.length = total;
+							if(callback) callback(pixelcons);
+						} else if(callback) callback(null);
+					});
+				}
+			} else {
+				if(callback) callback(null);
+			}
+		});
+	}
+	
+	function getBasicData(arrayString, callback) {
+		var rpcClient = jsonData.rpcClient?jsonData.rpcClient:"mainnet.infura.io/v3/07d72fe8b8b74534a05d2091e108e26e";
+		var getBasicData = {"jsonrpc":"2.0", "id":1, "method":"eth_call", "params":[{
+			"to": "0x5536B6aAdd29eAf0DB112Bb28046A5FaD3761bD4",
+			"data": "0xe2b31903" + arrayString
+		}, "latest"]};
+		httpPOST('https://'+rpcClient, getBasicData, function(res) {
+			if(res) {
+				var data = JSON.parse(res).result;
+				var dataString = data.substring(2, data.length);
+				var pixelcons = [];
+				for(var i=320; i<(arrayString.length+192); i+=64) pixelcons.push(dataString.substring(i,i+64));
+				if(callback) callback(pixelcons);
+			} else if(callback) callback(null);
+		});
+	}
+	
+	function getBasicDataFromFullArray(res, callback) {
+		var data = JSON.parse(res).result;
+		var arrayString = data.substring(2, data.length);
+		var total = (arrayString.length/64) - 2;
+		if(total == 0) callback([]);
+		else {
+			getBasicData(limitArrayString(arrayString, 25), function(pixelcons) {
+				if(pixelcons) {
+					pixelcons.length = total;
+					if(callback) callback(pixelcons);
+				} else if(callback) callback(null);
+			});
+		}
+	}
+	
+	function limitArrayString(arrayString, limit) {
+		var size = (arrayString.length/64) - 2;
+		if(size <= limit) return arrayString;
+		
+		arrayString = arrayString.substring(0,(limit+2)*64);
+		arrayString = arrayString.substring(0,64) + limit.toString(16).padStart(64, "0") + arrayString.substring(128,arrayString.length);
+		return arrayString;
+	}
+	
+	
+	// Base64 Utils /////////////////////////////////////////////////////////////////////////////////////////////////////////
+	var hexSet = ['0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f'];
+	var base64Set = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z','a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','0','1','2','3','4','5','6','7','8','9','+','/'];
+	function base64ToDec(base64) {
+		if(base64.length>1) return null;
+		var index = base64Set.indexOf(base64);
+		if(index > -1) return index;
+		return 0;
+	}
+	function hexToBase64(hex) {
+		if(hex.length%2 != 0) return null;
+		var r = hex.length%6;
+		
+		var base64 = "";
+		for(var i=0; i<hex.length-r; i+=6) {
+			var bytes = parseInt(hex.substring(i+0,i+6), 16);
+			base64 += base64Set[(bytes>>18)&0x3F] + base64Set[(bytes>>12)&0x3F] + base64Set[(bytes>>6)&0x3F] + base64Set[bytes&0x3F];
+		} if(r==4) {
+			var bytes = parseInt(hex.substring(hex.length-4,hex.length)+'00', 16);
+			base64 += base64Set[(bytes>>18)&0x3F] + base64Set[(bytes>>12)&0x3F] + base64Set[(bytes>>6)&0x3F] + '=';
+		} else if(r==2) {
+			var bytes = parseInt(hex.substring(hex.length-2,hex.length)+'0000', 16);
+			base64 += base64Set[(bytes>>18)&0x3F] + base64Set[(bytes>>12)&0x3F] + '==';
+		}
+		return base64;
+	}
+	function bas64ToHex(base64) {
+		if(base64.length%4 != 0) return null;
+		
+		var hex = "";
+		for(var i=0; i<base64.length; i+=4) {
+			var bytes = (base64ToDec(base64.charAt(i))<<18) + (base64ToDec(base64.charAt(i+1))<<12) + (base64ToDec(base64.charAt(i+2))<<6) + base64ToDec(base64.charAt(i+3));
+			hex += hexSet[(bytes>>20)&0x0F] + hexSet[(bytes>>16)&0x0F] + hexSet[(bytes>>12)&0x0F] + hexSet[(bytes>>8)&0x0F] + hexSet[(bytes>>4)&0x0F] + hexSet[bytes&0x0F];
+		} if(base64.charAt(base64.length-2) == '=') {
+			hex = hex.substring(0,hex.length-4);
+		} else if(base64.charAt(base64.length-1) == '=') {
+			hex = hex.substring(0,hex.length-2);
+		}
+		return hex;
+	}
+	
+	
+	// Data Get/Set Requests /////////////////////////////////////////////////////////////////////////////////////////////////////////
+	function jsonDataChanged(jsonData) {
+		jsonData = sanitizeJSONData(jsonData);
+		return loadedJSONData != JSON.stringify(jsonData);
+	}
+	function sanitizeJSONData(jsonData) {
+		jsonData = JSON.parse(JSON.stringify(jsonData));
+		jsonData.brightness = parseInt(jsonData.brightness);
+		jsonData.duration = parseInt(jsonData.duration);
+		for(var i=jsonData.sources.length-1; i>=0; i--) {
+			var type = parseInt(jsonData.sources[i].type);
+			var id = formatId(jsonData.sources[i].id, type==2);
+			
+			if(type == 4) jsonData.sources[i] = { type:type, id:'' };
+			else if(id) jsonData.sources[i] = { type:type, id:id };
+			else jsonData.sources.splice(i, 1);
+		}
+		jsonData.sources.sort(function(a, b) {
+			var val = a.id.localeCompare(b.id);
+			if(val == 0) val = a.type - b.type;
+			return val;
+		});
+		jsonData.staticPixelcon.sort();
+		
+		return jsonData;
+	}
+	function formatDataOutgoing(data) {
+		var loaded = JSON.parse(loadedJSONData);
+		var formatted = {};
+		if(data.staticMode != loaded.staticMode) formatted.staticMode = data.staticMode;
+		if(data.rpcClient != loaded.rpcClient) formatted.rpcClient = data.rpcClient;
+		if(data.brightness != loaded.brightness) formatted.brightness = data.brightness;
+		if(data.duration != loaded.duration) formatted.duration = data.duration;
+		if(JSON.stringify(data.sources) != JSON.stringify(loaded.sources)) formatted.sources = data.sources;
+		if(JSON.stringify(data.staticPixelcon) != JSON.stringify(loaded.staticPixelcon)) {
+			formatted.staticPixelconData = "";
+			for(var i=0; i<data.staticPixelcon.length; i++) formatted.staticPixelconData += hexToBase64(data.staticPixelcon[i]);
+		}
+		return formatted;
+	}
+	function formatDataIncoming(data) {
+		data.staticPixelcon = [];
+		if(data.staticPixelconData) {
+			if(data.staticPixelconData.length%44 == 0) {
+				for(var i=0; i<data.staticPixelconData.length; i+=44) data.staticPixelcon.push(bas64ToHex(data.staticPixelconData.substring(i,i+44)));
+			}
+			data.staticPixelconData = undefined;
+		}
+		return data;
+	}
+	function setData(jsonData, callback) {
+		jsonData = sanitizeJSONData(jsonData);
+		if(loadedJSONData != JSON.stringify(jsonData)) {
+			var data = formatDataOutgoing(jsonData);
+			pageShade.show('savingBox', false);
+			savingBox.innerText = 'Saving...';
+			var finish = function(res) {
+				if(res) {
+					savingBox.innerText = 'Saved!';
+					setTimeout(pageShade.hide, 2000);
+					loadedJSONData = JSON.stringify(jsonData);
+					if(callback) callback('success');
+				} else {
+					savingBox.innerText = 'ERROR';
+					setTimeout(pageShade.hide, 2000);
+					if(callback) callback(null);
+				}
+			}
+			if(dataTestMode) {
+				setTimeout(function() {
+					finish(true);
+				}, 2000);
+			} else {
+				httpPOST("/setData", data, function(res){
+					if(res) finish(res);
+					else setTimeout(function(){ httpPOST("/setData", data, finish); }, 1000);
+				});
+			}
+		}
+	}
+	function getData(callback) {
+		loadingBox.innerText = 'Loading...';
+		loadingBox.style.display = '';
+		topSection.style.display = 'none';
+		bottomSection.style.display = 'none';
+		var finish = function(res) {
+			if(res) {
+				loadingBox.style.display = 'none';
+				topSection.style.display = '';
+				bottomSection.style.display = '';
+				var data = JSON.parse(res);
+				data = formatDataIncoming(data);
+				data = sanitizeJSONData(data);
+				loadedJSONData = JSON.stringify(data);
+				if(callback) callback(data);
+			} else {
+				loadingBox.innerText = 'ERROR';
+				if(callback) callback(null);
+			}
+		}
+		if(dataTestMode) {
+			setTimeout(function() {
+				finish(JSON.stringify({
+					staticMode: false,
+					staticPixelconData: "mkmUmZSZmUmZmZmZkgmQKZzJnMmcx3zJnMAMyZzJrMk=mpmZmZmZkJmQBJCZmZmZmZSZmUmZQiSZmZiJmZmYiZk=OxMxMzEzMxMzAzAzMwMwMzMxMzMzswMzMzMTMzMzMzM=joiIiIIogiiIAiCIiAiAiIiIiIiI536Ignd3KIiO6Ig=mpmZmZkJkJmZCZCZmZmZmZB3dwmUAABJmUd0mZmaqZk=mpmZmZmZmZmUSZRJmZmZmZQAAEmQO7MJlLu7SZm7u5k=",
+					sources: [{ type:1, id:'2b564ff5ac6daff1c9cf28d6a53a2522c1265435' }],
+					rpcClient: "mainnet.infura.io/v3/07d72fe8b8b74534a05d2091e108e26e",
+					brightness: 80,
+					duration: 30
+				}));
+			}, 1000);
+		} else {
+			httpGet("/getData", function(res) {
+				if(res) finish(res);
+				else setTimeout(function(){ httpGet("/getData", finish); }, 1000);
+			});
+		}
+	}
+</script>
+</body>
+</HTML>
