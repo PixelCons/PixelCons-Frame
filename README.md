@@ -3,9 +3,11 @@ Pixel Art Showcase Frame
 
 ![Example](https://raw.githubusercontent.com/PixelCons/PixelCons-Frame/master/doc/img1.jpg)
 
-The PixelCon Frame is small device that displays pixel art (known as PixelCons) from the web. The pixel art is displayed on a bright 8x8 matrix of LEDs and is powered by the inexpensive WiFi enabled esp8266 board. Everything is enclosed in a 3D printed case.
+The PixelCon Frame is small device that displays pixel art (known as PixelCons) from the web. The pixel art is displayed on a bright 8x8 matrix of LEDs and is powered by the inexpensive WiFi enabled esp8266 board. Everything is enclosed in a 2.75in square 3D printed case.
 
 Pixel art displayed on the frame comes from the PixelCon ecosystem on the Ethereum blockchain. Anyone can make and explore PixelCon and using the power of the Ethereum blockchain, each PixelCon can be owned, collected, and traded like a cryptocurrency.
+
+Refer to the User Guide [here](https://github.com/PixelCons/PixelCons-Frame/blob/master/doc/PixelCon%20Frame%20(mini).pdf) for more inofmation on using/seting up the PixelCon Frame once it's been assembled.
 
 ## Hardware
 The PixelCon Frame consists of two main components, the NodeMCU ESP8266 microcontroller dev board and an 8x8 matrix of WS2812 LEDs. Other smaller passive components needed include an electrolytic capaictor, n-channel transistor and a single resistor.
@@ -21,6 +23,16 @@ The PixelCon Frame consists of two main components, the NodeMCU ESP8266 microcon
 
 ![Schematic](https://raw.githubusercontent.com/PixelCons/PixelCons-Frame/master/doc/schematic.png)
 
+## Software
+All software for the PixelCon Frame is run on the ESP8266 microcontroller and was designed to use the Arduino IDE for flashing the code. To flash the code to the NodeMCU ESP8266 board, follow these steps:
+
+1. step one
+2. step two
+
+Packed inside of the code is the web interface for configuring the behavior of the PixelCon Frame. Refer to the User Guide [here](https://github.com/PixelCons/PixelCons-Frame/blob/master/doc/PixelCon%20Frame%20(mini).pdf) for an explaination of using the software.
+
+![WebUI](https://raw.githubusercontent.com/PixelCons/PixelCons-Frame/master/doc/webui.png)
+
 ## Assembly
 The PixelCon Frame body can be 3D printed from the STL files found [here](https://github.com/PixelCons/PixelCons-Frame/tree/master/stl) in the stl folder. To make your own, simply print them out and follow these assembly steps:
 
@@ -33,4 +45,7 @@ The PixelCon Frame body can be 3D printed from the STL files found [here](https:
 
 ![Schematic](https://raw.githubusercontent.com/PixelCons/PixelCons-Frame/master/doc/breakdown.jpg)
 
-## Software
+## What's Next?
+Currently, there is only the mini design, but it should be possible to create larger or even smaller versions and add features like an internal battery. Look forward to future software updates and more hardware revisions. 
+
+Remember to check the User Guide [here](https://github.com/PixelCons/PixelCons-Frame/blob/master/doc/PixelCon%20Frame%20(mini).pdf) for more information on how to use the PixelCon Frame.
