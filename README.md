@@ -1,7 +1,7 @@
 # PixelCons-Frame
 Pixel Art Showcase Frame
 
-![Image description](https://raw.githubusercontent.com/PixelCons/PixelCons-Frame/master/doc/img1.jpg)
+![Example](https://raw.githubusercontent.com/PixelCons/PixelCons-Frame/master/doc/img1.jpg)
 
 The PixelCon Frame is small device that displays pixel art (known as PixelCons) from the web. The pixel art is displayed on a bright 8x8 matrix of LEDs and is powered by the inexpensive WiFi enabled esp8266 board. Everything is enclosed in a 3D printed case.
 
@@ -15,3 +15,7 @@ Pixel art displayed on the frame comes from the PixelCon ecosystem on the Ethere
 - DC Barrel Jack
 - 1000uF Capacitor
 - 2.6kOhm Resistor
+
+![Schematic](https://raw.githubusercontent.com/PixelCons/PixelCons-Frame/master/doc/schematic.png)
+
+## Software
