@@ -3,7 +3,7 @@ Pixel Art Showcase Frame
 
 ![Image description](https://raw.githubusercontent.com/PixelCons/PixelCons-Frame/master/doc/img1.jpg)
 
-The PixelCon Frame is small device that displays pixel art (known as PixelCons) from the web. The pixel art is displayed on a bright 8x8 matrix of LEDs and is powered by the inexpensive WiFi enabled esp8266 board. Everything is enclosed in a 3D printed case made from a mat black ABS filament.  
+The PixelCon Frame is small device that displays pixel art (known as PixelCons) from the web. The pixel art is displayed on a bright 8x8 matrix of LEDs and is powered by the inexpensive WiFi enabled esp8266 board. Everything is enclosed in a 3D printed case.
 
 Pixel art displayed on the frame comes from the PixelCon ecosystem on the Ethereum blockchain. Anyone can make and explore PixelCon and using the power of the Ethereum blockchain, each PixelCon can be owned, collected, and traded like a cryptocurrency.
 
