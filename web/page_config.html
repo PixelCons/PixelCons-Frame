@@ -295,8 +295,7 @@
 	function setDuration() {
 		var d = parseInt(duration.value);
 		if(!isNaN(d)) {
-			if(d < 5) d = 5;
-			if(d > 3600) d = 3600;
+			if(d < 0) d = 0;
 			duration.value = ""+d;
 		} else {
 			d = JSON.parse(loadedJSONData).duration;
@@ -306,12 +305,15 @@
 	}
 	function setDurationDone() {
 		var d = parseInt(duration.value);
-		if(isNaN(d)) {
+		if(!isNaN(d)) {
+			if(d < 5) d = 5;
+			if(d > 3600) d = 3600;
+		} else {
 			d = JSON.parse(loadedJSONData).duration;
-			jsonData.duration = d;
-			duration.value = ""+d;
-			enableDisableSaveButton();
 		}
+		duration.value = ""+d;
+		jsonData.duration = d;
+		enableDisableSaveButton();
 	}
 	brightness.onchange = setBrightness;
 	duration.oninput = setDuration;
